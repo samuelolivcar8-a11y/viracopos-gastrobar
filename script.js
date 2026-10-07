@@ -1,143 +1,1328 @@
+
 const MENU = [
-  {cat:"Bebidas",items:[
-    ["Água com Gás - 500 ml",4.99],["Água de Coco - 200 ml",6.99],["Água de Coco - Gelo Frost",8.99],["Água de Coco - 1 Litro",19.99],["Água sem Gás - 500 ml",3.99],["Água Tônica - Lata",7.99],["H2O",11.99],["Refrigerante - Lata",6.99],["Refrigerante - 600ml",9.99],["Refrigerante - 2 L",18.99],["Red Bull",15.99]
-  ]},
-  {cat:"Sucos e Polpas",items:[
-    ["Laranja - Fruta",{"Copo":11.99,"Jarra":19.99}],["Limão - Fruta",{"Copo":11.99,"Jarra":19.99}],["Maracujá - Fruta",{"Copo":11.99,"Jarra":19.99}],["Acerola - Polpa",{"Copo":11.99,"Jarra":19.99}],["Morango - Polpa",{"Copo":11.99,"Jarra":19.99}],["Abacaxi - Polpa",{"Copo":11.99,"Jarra":19.99}]
-  ]},
-  {cat:"Cremes",items:[
-    ["Abacaxi",{"Copo":16.99,"Jarra":27.99}],["Açaí",{"Copo":16.99,"Jarra":27.99}],["Cupuaçu",{"Copo":16.99,"Jarra":27.99}],["Maracujá",{"Copo":16.99,"Jarra":27.99}],["Morango",{"Copo":16.99,"Jarra":27.99}]
-  ]},
-  {cat:"Cervejas 600ml",items:[
-    ["Amstel - 600 ml",14.99],["Antarctica - 600 ml",11.99],["Brahma - 600 ml",11.99],["Budweiser - 600 ml",14.99],["Corona - 600ml",18.99],["Eisenbahn - 600 ml",15.99],["Heineken - 600 ml",17.99],["Original - 600 ml",14.99],["Petra - 600 ml",11.99],["Skol - 600ml",11.99],["Spaten - 600 ml",14.99],["Stella - 600 ml",16.99],["Stella Gold - 600 ml",18.99]
-  ]},
-  {cat:"Cervejas Long & Latas",items:[
-    ["Lata - Antarctica 269 ml",5.99],["Lata - Brahma 269 ml",5.99],["Lata - Skol 269 ml",5.99],["Long neck - Budweiser",11.99],["Long neck - Corona",11.99],["Long neck - Heineken",11.99],["Long neck - Heineken Zero",11.99],["Long neck - Spaten",11.99],["Long neck - Corona Zero",11.99],["Long neck - Stella Gold",11.99],["Chopp Brahma",9.99],["Ice Balada",10.99],["Ice Kiwi",10.99],["Ice Limão",10.99]
-  ]},
-  {cat:"Drinks / Coquetéis",items:[
-    ["Aperol Spritz",22],["Caipirinha",17],["Caipirosca",18],["Caipirosca Abacaxi",19],["Caipirosca Limão",18],["Caipirosca Maracujá",19],["Caipirosca Kiwi",19],["Caipirosca Morango",19],["Caipirosca Maracujá c/ Morango",19],["Caipirosca Abacaxi c/ Hortelã",19],["Caipirosca Maracujá c/ Limão",19],["Caipirosca Melancia c/ Gengibre",19],["Coquetel de Vinho",17],["Gin Apple",21],["Gin Melancia",21],["Gin Frutas Vermelhas",22],["Gin Tônica",21],["Gin Tropical",22],["Gin Varacopos",25],["London Mule",21],["Margarita",27],["Metrópole",22],["Mojito",27],["Moscow Mule",25],["Negroni",28],["Piña Colada",27],["Preparo de Coquetel",7],["Sex on the Beach",27],["Shot Chocolate",24],["Shot Doce de Leite",24],["Shot Tequila",24]
-  ]},
-  {cat:"Doses",items:[
-    ["Absolut",21.99],["Bananinha",9.99],["Campari",10.99],["Domecq",14.99],["Gin Beefeater London",22],["Gin Bombay",27.99],["Gin Tanqueray",22],["Jurupinga",6.99],["Licor 43",28.99],["Licor 43 - Chocolate",32.99],["Montilla",11.99],["Paratudo",7.99],["São Francisco",6.99],["Seleta",14.99],["Tequila",24.99],["Vodko Orloff",13.99],["Vodka Smirnoff",10.99],["Whisky Black Label",27.99],["Whisky Buchanan's 12 anos",27.99],["Whisky Cavalo Branco",19.99],["Whisky Chivas",27.99],["Whisky Jack Daniels",27.99],["Whisky Old Par 12 Anos",27.99],["Whisky Red Label",22],["Ypióca Empalhada",14.99],["Ballena",32.99],["Marula",27.99],["Don Luiz",16.99]
-  ]},
-  {cat:"Garrafas Destilados e Vinhos",items:[
-    ["Bananinha",49],["Campari",150],["Chandon Brut Espumante",140],["Lambrusco",100],["Paratudo",40],["Don Luiz",170],["Salton Brut Espumante",74],["São Francisco",70],["Tequila",220],["Vinho Casillero del Diablo Seco",85],["Vinho Pérgola Suave",55],["Ballena",310]
-  ]},
-  {cat:"Combos",items:[
-    ["Gin Beefeater London",{"Combo":279,"Garrafa":229}],["Gin Bombay",{"Combo":339,"Garrafa":299}],["Gin Tanqueray",{"Combo":289,"Garrafa":239}],["Vodka Absolut",{"Combo":279,"Garrafa":219}],["Vodka Smirnoff",{"Combo":179,"Garrafa":119}],["Whisky Black Label",{"Combo":379,"Garrafa":329}],["Whisky Cavalo Branco",{"Combo":239,"Garrafa":189}],["Whisky Chivas",{"Combo":339,"Garrafa":299}],["Whisky Jack Daniels",{"Combo":339,"Garrafa":299}],["Whisky Old Parr",{"Combo":339,"Garrafa":299}],["Whisky Red Label",{"Combo":279,"Garrafa":229}]
-  ]},
-  {cat:"Para Petiscar",items:[
-    ["Batata Frita",27.99],["Batata Frita Completa (Cheddar e Bacon)",33.99],["Mandioca Frita",17.99],["Calabresa Acebolada",29.99],["Calabresa Acebolada c/ Fritas",35.99],["Frango a Passarinho",42.99],["Frango a Passarinho c/ Fritas",48.99],["Carne de Sol Acebolada",64.99],["Carne de Sol Acebolada c/ Mandioca",69.99],["Linguiça Frango c/ Pão de Alho",44.99],["Isca de Frango Empanada",49.99],["Isca de Peixe Empanada",79.99],["Posta de Peixe",49.99],["Porção de Coração de Frango",44.99],["Porção de Pastel Misto (Frango, Queijo e Carne)",27.99],["Frios (Queijo, Presunto, Azeitona, Salame e Ovo de Codorna)",54.99],["Camarão Empanado",74.99],["Camarão Alho e Óleo",69.99],["Caldos (Vaca Atolada, Frango e Mocotó)",16.99],["Torresmo",27.99],["MIX VIRACOPOS (Carne de Sol, Calabresa e Batata Frita)",74.99],["Disco de Carne C/ Fritas",59.99],["Queijo Empanado c/ Melaço",44.99],["Tilápia Inteira c/ Fritas",79.99],["Tilápia Inteira s/ Espinha c/ Fritas",89.99],["Picanha Fatiada c/ Fritas",99.99]
-  ]},
-  {cat:"Pratos Kids",items:[["Hambúrguer c/ Fritas",24.99]]},
-  {cat:"Pratos (para 2 pessoas)",items:[
-    ["Tilápia Inteira s/ Espinha",139.99],["Picanha Completa",149.99],["Filé Mignon",149.99],["Carne de Sol Completa",109.99],["Parmegiana de Frango",69.99],["Parmegiana de Filé Mignon",79.99],["Bobó de Camarão",109.99],["Moqueca de Peixe com Camarão",119.99],["Moqueca de Peixe sem Camarão",99.99],["Camarão Viracopos",109.99],["Espaguete a Bolonhesa com Carne",79.99],["Espaguete 4 Queijos com Camarão",109.99],["Filé de Tilápia com Arroz de Camarão",129.99],["Filé de Frango Grelhado",69.99],["Filé de Frango Grelhado Molho 4 Queijos",79.99],["Posta de Tilápia",89.99]
-  ]},
-  {cat:"Pratos Executivos",items:[
-    ["Peito de Frango Grelhado",22.99],["Bife a Cavalo",27.99],["Parmegiana de Frango",27.99],["Parmegiana de Filé Mignon",37.99],["Posta de Tilápia",27.99],["Estrogonofe de Frango",27.99],["Estrogonofe de Filé Mignon",37.99],["Picanha",37.99],["Feijoada",19.99]
-  ]},
-  {cat:"Acompanhamentos",items:[
-    ["Arroz Branco",8.99],["Arroz Biro Biro",18.99],["Feijão de Caldo",9.99],["Feijão Tropeiro",12.99],["Farofa de Bacon",14.99],["Mandioca Cozida",5.99],["Mandioca Frita",12.99],["Vinaigrette",11.99],["Batata Recheada",14.99],["Salada",8.99],["Puré",9.99]
-  ]},
-  {cat:"Sobremesas",items:[["Brownie com Sorvete",19.99],["Pudim",14.99]]}
+  {
+    "id": "Bebidas-0",
+    "category": "Bebidas",
+    "name": "Água com Gás - 500 ml",
+    "price": 4.99
+  },
+  {
+    "id": "Bebidas-1",
+    "category": "Bebidas",
+    "name": "Água de Coco - 200 ml",
+    "price": 6.99
+  },
+  {
+    "id": "Bebidas-2",
+    "category": "Bebidas",
+    "name": "Água de Coco - Gelo Frost",
+    "price": 8.99
+  },
+  {
+    "id": "Bebidas-3",
+    "category": "Bebidas",
+    "name": "Água de Coco - 1 Litro",
+    "price": 19.99
+  },
+  {
+    "id": "Bebidas-4",
+    "category": "Bebidas",
+    "name": "Água sem Gás - 500 ml",
+    "price": 3.99
+  },
+  {
+    "id": "Bebidas-5",
+    "category": "Bebidas",
+    "name": "Água Tônica - Lata",
+    "price": 7.99
+  },
+  {
+    "id": "Bebidas-6",
+    "category": "Bebidas",
+    "name": "H2O",
+    "price": 11.99
+  },
+  {
+    "id": "Bebidas-7",
+    "category": "Bebidas",
+    "name": "Refrigerante - Lata",
+    "price": 6.99
+  },
+  {
+    "id": "Bebidas-8",
+    "category": "Bebidas",
+    "name": "Refrigerante - 600ml",
+    "price": 9.99
+  },
+  {
+    "id": "Bebidas-9",
+    "category": "Bebidas",
+    "name": "Refrigerante - 2 L",
+    "price": 18.99
+  },
+  {
+    "id": "Bebidas-10",
+    "category": "Bebidas",
+    "name": "Red Bull",
+    "price": 15.99
+  },
+  {
+    "id": "Sucos e Polpas-0",
+    "category": "Sucos e Polpas",
+    "name": "Laranja - Fruta",
+    "prices": {
+      "Copo/Combo": 11.99,
+      "Jarra/Garrafa": 19.99
+    }
+  },
+  {
+    "id": "Sucos e Polpas-1",
+    "category": "Sucos e Polpas",
+    "name": "Limão - Fruta",
+    "prices": {
+      "Copo/Combo": 11.99,
+      "Jarra/Garrafa": 19.99
+    }
+  },
+  {
+    "id": "Sucos e Polpas-2",
+    "category": "Sucos e Polpas",
+    "name": "Maracujá - Fruta",
+    "prices": {
+      "Copo/Combo": 11.99,
+      "Jarra/Garrafa": 19.99
+    }
+  },
+  {
+    "id": "Sucos e Polpas-3",
+    "category": "Sucos e Polpas",
+    "name": "Acerola - Polpa",
+    "prices": {
+      "Copo/Combo": 11.99,
+      "Jarra/Garrafa": 19.99
+    }
+  },
+  {
+    "id": "Sucos e Polpas-4",
+    "category": "Sucos e Polpas",
+    "name": "Morango - Polpa",
+    "prices": {
+      "Copo/Combo": 11.99,
+      "Jarra/Garrafa": 19.99
+    }
+  },
+  {
+    "id": "Sucos e Polpas-5",
+    "category": "Sucos e Polpas",
+    "name": "Abacaxi - Polpa",
+    "prices": {
+      "Copo/Combo": 11.99,
+      "Jarra/Garrafa": 19.99
+    }
+  },
+  {
+    "id": "Cremes-0",
+    "category": "Cremes",
+    "name": "Abacaxi",
+    "prices": {
+      "Copo/Combo": 16.99,
+      "Jarra/Garrafa": 27.99
+    }
+  },
+  {
+    "id": "Cremes-1",
+    "category": "Cremes",
+    "name": "Açaí",
+    "prices": {
+      "Copo/Combo": 16.99,
+      "Jarra/Garrafa": 27.99
+    }
+  },
+  {
+    "id": "Cremes-2",
+    "category": "Cremes",
+    "name": "Cupuaçu",
+    "prices": {
+      "Copo/Combo": 16.99,
+      "Jarra/Garrafa": 27.99
+    }
+  },
+  {
+    "id": "Cremes-3",
+    "category": "Cremes",
+    "name": "Maracujá",
+    "prices": {
+      "Copo/Combo": 16.99,
+      "Jarra/Garrafa": 27.99
+    }
+  },
+  {
+    "id": "Cremes-4",
+    "category": "Cremes",
+    "name": "Morango",
+    "prices": {
+      "Copo/Combo": 16.99,
+      "Jarra/Garrafa": 27.99
+    }
+  },
+  {
+    "id": "Cervejas 600ml-0",
+    "category": "Cervejas 600ml",
+    "name": "Amstel - 600 ml",
+    "price": 14.99
+  },
+  {
+    "id": "Cervejas 600ml-1",
+    "category": "Cervejas 600ml",
+    "name": "Antarctica - 600 ml",
+    "price": 11.99
+  },
+  {
+    "id": "Cervejas 600ml-2",
+    "category": "Cervejas 600ml",
+    "name": "Brahma - 600 ml",
+    "price": 11.99
+  },
+  {
+    "id": "Cervejas 600ml-3",
+    "category": "Cervejas 600ml",
+    "name": "Budweiser - 600 ml",
+    "price": 14.99
+  },
+  {
+    "id": "Cervejas 600ml-4",
+    "category": "Cervejas 600ml",
+    "name": "Corona - 600ml",
+    "price": 18.99
+  },
+  {
+    "id": "Cervejas 600ml-5",
+    "category": "Cervejas 600ml",
+    "name": "Eisenbahn - 600 ml",
+    "price": 15.99
+  },
+  {
+    "id": "Cervejas 600ml-6",
+    "category": "Cervejas 600ml",
+    "name": "Heineken - 600 ml",
+    "price": 17.99
+  },
+  {
+    "id": "Cervejas 600ml-7",
+    "category": "Cervejas 600ml",
+    "name": "Original - 600 ml",
+    "price": 14.99
+  },
+  {
+    "id": "Cervejas 600ml-8",
+    "category": "Cervejas 600ml",
+    "name": "Petra - 600 ml",
+    "price": 11.99
+  },
+  {
+    "id": "Cervejas 600ml-9",
+    "category": "Cervejas 600ml",
+    "name": "Skol - 600ml",
+    "price": 11.99
+  },
+  {
+    "id": "Cervejas 600ml-10",
+    "category": "Cervejas 600ml",
+    "name": "Spaten - 600 ml",
+    "price": 14.99
+  },
+  {
+    "id": "Cervejas 600ml-11",
+    "category": "Cervejas 600ml",
+    "name": "Stella - 600 ml",
+    "price": 16.99
+  },
+  {
+    "id": "Cervejas 600ml-12",
+    "category": "Cervejas 600ml",
+    "name": "Stella Gold - 600 ml",
+    "price": 18.99
+  },
+  {
+    "id": "Cervejas Long & Latas-0",
+    "category": "Cervejas Long & Latas",
+    "name": "Lata - Antarctica 269 ml",
+    "price": 5.99
+  },
+  {
+    "id": "Cervejas Long & Latas-1",
+    "category": "Cervejas Long & Latas",
+    "name": "Lata - Brahma 269 ml",
+    "price": 5.99
+  },
+  {
+    "id": "Cervejas Long & Latas-2",
+    "category": "Cervejas Long & Latas",
+    "name": "Lata - Skol 269 ml",
+    "price": 5.99
+  },
+  {
+    "id": "Cervejas Long & Latas-3",
+    "category": "Cervejas Long & Latas",
+    "name": "Long neck - Budweiser",
+    "price": 11.99
+  },
+  {
+    "id": "Cervejas Long & Latas-4",
+    "category": "Cervejas Long & Latas",
+    "name": "Long neck - Corona",
+    "price": 11.99
+  },
+  {
+    "id": "Cervejas Long & Latas-5",
+    "category": "Cervejas Long & Latas",
+    "name": "Long neck - Heineken",
+    "price": 11.99
+  },
+  {
+    "id": "Cervejas Long & Latas-6",
+    "category": "Cervejas Long & Latas",
+    "name": "Long neck - Heineken Zero",
+    "price": 11.99
+  },
+  {
+    "id": "Cervejas Long & Latas-7",
+    "category": "Cervejas Long & Latas",
+    "name": "Long neck - Spaten",
+    "price": 11.99
+  },
+  {
+    "id": "Cervejas Long & Latas-8",
+    "category": "Cervejas Long & Latas",
+    "name": "Long neck - Corona Zero",
+    "price": 11.99
+  },
+  {
+    "id": "Cervejas Long & Latas-9",
+    "category": "Cervejas Long & Latas",
+    "name": "Long neck - Stella Gold",
+    "price": 11.99
+  },
+  {
+    "id": "Cervejas Long & Latas-10",
+    "category": "Cervejas Long & Latas",
+    "name": "Chopp Brahma",
+    "price": 9.99
+  },
+  {
+    "id": "Cervejas Long & Latas-11",
+    "category": "Cervejas Long & Latas",
+    "name": "Ice Balada",
+    "price": 10.99
+  },
+  {
+    "id": "Cervejas Long & Latas-12",
+    "category": "Cervejas Long & Latas",
+    "name": "Ice Kiwi",
+    "price": 10.99
+  },
+  {
+    "id": "Cervejas Long & Latas-13",
+    "category": "Cervejas Long & Latas",
+    "name": "Ice Limão",
+    "price": 10.99
+  },
+  {
+    "id": "Drinks / Coquetéis-0",
+    "category": "Drinks / Coquetéis",
+    "name": "Aperol Spritz",
+    "price": 22
+  },
+  {
+    "id": "Drinks / Coquetéis-1",
+    "category": "Drinks / Coquetéis",
+    "name": "Caipirinha",
+    "price": 17,
+    "image": "assets/caipirinha.jpg"
+  },
+  {
+    "id": "Drinks / Coquetéis-2",
+    "category": "Drinks / Coquetéis",
+    "name": "Caipirosca",
+    "price": 18
+  },
+  {
+    "id": "Drinks / Coquetéis-3",
+    "category": "Drinks / Coquetéis",
+    "name": "Caipirosca Abacaxi",
+    "price": 19
+  },
+  {
+    "id": "Drinks / Coquetéis-4",
+    "category": "Drinks / Coquetéis",
+    "name": "Caipirosca Limão",
+    "price": 18
+  },
+  {
+    "id": "Drinks / Coquetéis-5",
+    "category": "Drinks / Coquetéis",
+    "name": "Caipirosca Maracujá",
+    "price": 19
+  },
+  {
+    "id": "Drinks / Coquetéis-6",
+    "category": "Drinks / Coquetéis",
+    "name": "Caipirosca Kiwi",
+    "price": 19
+  },
+  {
+    "id": "Drinks / Coquetéis-7",
+    "category": "Drinks / Coquetéis",
+    "name": "Caipirosca Morango",
+    "price": 19
+  },
+  {
+    "id": "Drinks / Coquetéis-8",
+    "category": "Drinks / Coquetéis",
+    "name": "Caipirosca Maracujá c/ Morango",
+    "price": 19
+  },
+  {
+    "id": "Drinks / Coquetéis-9",
+    "category": "Drinks / Coquetéis",
+    "name": "Caipirosca Abacaxi c/ Hortelã",
+    "price": 19
+  },
+  {
+    "id": "Drinks / Coquetéis-10",
+    "category": "Drinks / Coquetéis",
+    "name": "Caipirosca Maracujá c/ Limão",
+    "price": 19
+  },
+  {
+    "id": "Drinks / Coquetéis-11",
+    "category": "Drinks / Coquetéis",
+    "name": "Caipirosca Melancia c/ Gengibre",
+    "price": 19
+  },
+  {
+    "id": "Drinks / Coquetéis-12",
+    "category": "Drinks / Coquetéis",
+    "name": "Coquetel de Vinho",
+    "price": 17
+  },
+  {
+    "id": "Drinks / Coquetéis-13",
+    "category": "Drinks / Coquetéis",
+    "name": "Gin Apple",
+    "price": 21
+  },
+  {
+    "id": "Drinks / Coquetéis-14",
+    "category": "Drinks / Coquetéis",
+    "name": "Gin Melancia",
+    "price": 21
+  },
+  {
+    "id": "Drinks / Coquetéis-15",
+    "category": "Drinks / Coquetéis",
+    "name": "Gin Frutas Vermelhas",
+    "price": 22
+  },
+  {
+    "id": "Drinks / Coquetéis-16",
+    "category": "Drinks / Coquetéis",
+    "name": "Gin Tônica",
+    "price": 21
+  },
+  {
+    "id": "Drinks / Coquetéis-17",
+    "category": "Drinks / Coquetéis",
+    "name": "Gin Tropical",
+    "price": 22
+  },
+  {
+    "id": "Drinks / Coquetéis-18",
+    "category": "Drinks / Coquetéis",
+    "name": "Gin Varacopos",
+    "price": 25
+  },
+  {
+    "id": "Drinks / Coquetéis-19",
+    "category": "Drinks / Coquetéis",
+    "name": "London Mule",
+    "price": 21
+  },
+  {
+    "id": "Drinks / Coquetéis-20",
+    "category": "Drinks / Coquetéis",
+    "name": "Margarita",
+    "price": 27
+  },
+  {
+    "id": "Drinks / Coquetéis-21",
+    "category": "Drinks / Coquetéis",
+    "name": "Metrópole",
+    "price": 22
+  },
+  {
+    "id": "Drinks / Coquetéis-22",
+    "category": "Drinks / Coquetéis",
+    "name": "Mojito",
+    "price": 27
+  },
+  {
+    "id": "Drinks / Coquetéis-23",
+    "category": "Drinks / Coquetéis",
+    "name": "Moscow Mule",
+    "price": 25
+  },
+  {
+    "id": "Drinks / Coquetéis-24",
+    "category": "Drinks / Coquetéis",
+    "name": "Negroni",
+    "price": 28
+  },
+  {
+    "id": "Drinks / Coquetéis-25",
+    "category": "Drinks / Coquetéis",
+    "name": "Piña Colada",
+    "price": 27
+  },
+  {
+    "id": "Drinks / Coquetéis-26",
+    "category": "Drinks / Coquetéis",
+    "name": "Preparo de Coquetel",
+    "price": 7
+  },
+  {
+    "id": "Drinks / Coquetéis-27",
+    "category": "Drinks / Coquetéis",
+    "name": "Sex on the Beach",
+    "price": 27
+  },
+  {
+    "id": "Drinks / Coquetéis-28",
+    "category": "Drinks / Coquetéis",
+    "name": "Shot Chocolate",
+    "price": 24
+  },
+  {
+    "id": "Drinks / Coquetéis-29",
+    "category": "Drinks / Coquetéis",
+    "name": "Shot Doce de Leite",
+    "price": 24
+  },
+  {
+    "id": "Drinks / Coquetéis-30",
+    "category": "Drinks / Coquetéis",
+    "name": "Shot Tequila",
+    "price": 24
+  },
+  {
+    "id": "Doses-0",
+    "category": "Doses",
+    "name": "Absolut",
+    "price": 21.99
+  },
+  {
+    "id": "Doses-1",
+    "category": "Doses",
+    "name": "Bananinha",
+    "price": 9.99
+  },
+  {
+    "id": "Doses-2",
+    "category": "Doses",
+    "name": "Campari",
+    "price": 10.99
+  },
+  {
+    "id": "Doses-3",
+    "category": "Doses",
+    "name": "Domecq",
+    "price": 14.99
+  },
+  {
+    "id": "Doses-4",
+    "category": "Doses",
+    "name": "Gin Beefeater London",
+    "price": 22
+  },
+  {
+    "id": "Doses-5",
+    "category": "Doses",
+    "name": "Gin Bombay",
+    "price": 27.99
+  },
+  {
+    "id": "Doses-6",
+    "category": "Doses",
+    "name": "Gin Tanqueray",
+    "price": 22
+  },
+  {
+    "id": "Doses-7",
+    "category": "Doses",
+    "name": "Jurupinga",
+    "price": 6.99
+  },
+  {
+    "id": "Doses-8",
+    "category": "Doses",
+    "name": "Licor 43",
+    "price": 28.99
+  },
+  {
+    "id": "Doses-9",
+    "category": "Doses",
+    "name": "Licor 43 - Chocolate",
+    "price": 32.99
+  },
+  {
+    "id": "Doses-10",
+    "category": "Doses",
+    "name": "Montilla",
+    "price": 11.99
+  },
+  {
+    "id": "Doses-11",
+    "category": "Doses",
+    "name": "Paratudo",
+    "price": 7.99
+  },
+  {
+    "id": "Doses-12",
+    "category": "Doses",
+    "name": "São Francisco",
+    "price": 6.99
+  },
+  {
+    "id": "Doses-13",
+    "category": "Doses",
+    "name": "Seleta",
+    "price": 14.99
+  },
+  {
+    "id": "Doses-14",
+    "category": "Doses",
+    "name": "Tequila",
+    "price": 24.99
+  },
+  {
+    "id": "Doses-15",
+    "category": "Doses",
+    "name": "Vodko Orloff",
+    "price": 13.99
+  },
+  {
+    "id": "Doses-16",
+    "category": "Doses",
+    "name": "Vodka Smirnoff",
+    "price": 10.99
+  },
+  {
+    "id": "Doses-17",
+    "category": "Doses",
+    "name": "Whisky Black Label",
+    "price": 27.99
+  },
+  {
+    "id": "Doses-18",
+    "category": "Doses",
+    "name": "Whisky Buchanan's 12 anos",
+    "price": 27.99
+  },
+  {
+    "id": "Doses-19",
+    "category": "Doses",
+    "name": "Whisky Cavalo Branco",
+    "price": 19.99
+  },
+  {
+    "id": "Doses-20",
+    "category": "Doses",
+    "name": "Whisky Chivas",
+    "price": 27.99
+  },
+  {
+    "id": "Doses-21",
+    "category": "Doses",
+    "name": "Whisky Jack Daniels",
+    "price": 27.99
+  },
+  {
+    "id": "Doses-22",
+    "category": "Doses",
+    "name": "Whisky Old Par 12 Anos",
+    "price": 27.99
+  },
+  {
+    "id": "Doses-23",
+    "category": "Doses",
+    "name": "Whisky Red Label",
+    "price": 22
+  },
+  {
+    "id": "Doses-24",
+    "category": "Doses",
+    "name": "Ypióca Empalhada",
+    "price": 14.99
+  },
+  {
+    "id": "Doses-25",
+    "category": "Doses",
+    "name": "Ballena",
+    "price": 32.99
+  },
+  {
+    "id": "Doses-26",
+    "category": "Doses",
+    "name": "Marula",
+    "price": 27.99
+  },
+  {
+    "id": "Doses-27",
+    "category": "Doses",
+    "name": "Don Luiz",
+    "price": 16.99
+  },
+  {
+    "id": "Garrafas Destilados e Vinhos-0",
+    "category": "Garrafas Destilados e Vinhos",
+    "name": "Bananinha",
+    "price": 49
+  },
+  {
+    "id": "Garrafas Destilados e Vinhos-1",
+    "category": "Garrafas Destilados e Vinhos",
+    "name": "Campari",
+    "price": 150
+  },
+  {
+    "id": "Garrafas Destilados e Vinhos-2",
+    "category": "Garrafas Destilados e Vinhos",
+    "name": "Chandon Brut Espumante",
+    "price": 140
+  },
+  {
+    "id": "Garrafas Destilados e Vinhos-3",
+    "category": "Garrafas Destilados e Vinhos",
+    "name": "Lambrusco",
+    "price": 100
+  },
+  {
+    "id": "Garrafas Destilados e Vinhos-4",
+    "category": "Garrafas Destilados e Vinhos",
+    "name": "Paratudo",
+    "price": 40
+  },
+  {
+    "id": "Garrafas Destilados e Vinhos-5",
+    "category": "Garrafas Destilados e Vinhos",
+    "name": "Don Luiz",
+    "price": 170
+  },
+  {
+    "id": "Garrafas Destilados e Vinhos-6",
+    "category": "Garrafas Destilados e Vinhos",
+    "name": "Salton Brut Espumante",
+    "price": 74
+  },
+  {
+    "id": "Garrafas Destilados e Vinhos-7",
+    "category": "Garrafas Destilados e Vinhos",
+    "name": "São Francisco",
+    "price": 70
+  },
+  {
+    "id": "Garrafas Destilados e Vinhos-8",
+    "category": "Garrafas Destilados e Vinhos",
+    "name": "Tequila",
+    "price": 220
+  },
+  {
+    "id": "Garrafas Destilados e Vinhos-9",
+    "category": "Garrafas Destilados e Vinhos",
+    "name": "Vinho Casillero del Diablo Seco",
+    "price": 85
+  },
+  {
+    "id": "Garrafas Destilados e Vinhos-10",
+    "category": "Garrafas Destilados e Vinhos",
+    "name": "Vinho Pérgola Suave",
+    "price": 55
+  },
+  {
+    "id": "Garrafas Destilados e Vinhos-11",
+    "category": "Garrafas Destilados e Vinhos",
+    "name": "Ballena",
+    "price": 310
+  },
+  {
+    "id": "Combos-0",
+    "category": "Combos",
+    "name": "Gin Beefeater London (1 Red Bull)",
+    "prices": {
+      "Copo/Combo": 279,
+      "Jarra/Garrafa": 229
+    }
+  },
+  {
+    "id": "Combos-1",
+    "category": "Combos",
+    "name": "Gin Bombay (1 Red Bull)",
+    "prices": {
+      "Copo/Combo": 339,
+      "Jarra/Garrafa": 299
+    }
+  },
+  {
+    "id": "Combos-2",
+    "category": "Combos",
+    "name": "Gin Tanqueray (1 Red Bull)",
+    "prices": {
+      "Copo/Combo": 289,
+      "Jarra/Garrafa": 239
+    }
+  },
+  {
+    "id": "Combos-3",
+    "category": "Combos",
+    "name": "Vodka Absolut (5 Red Bull)",
+    "prices": {
+      "Copo/Combo": 279,
+      "Jarra/Garrafa": 219
+    }
+  },
+  {
+    "id": "Combos-4",
+    "category": "Combos",
+    "name": "Vodka Smirnoff (5 Red Bull)",
+    "prices": {
+      "Copo/Combo": 179,
+      "Jarra/Garrafa": 119
+    }
+  },
+  {
+    "id": "Combos-5",
+    "category": "Combos",
+    "name": "Whisky Black Label (5 Red Bull ou Água de coco)",
+    "prices": {
+      "Copo/Combo": 379,
+      "Jarra/Garrafa": 329
+    }
+  },
+  {
+    "id": "Combos-6",
+    "category": "Combos",
+    "name": "Whisky Cavalo Branco (5 Red Bull ou Água de coco)",
+    "prices": {
+      "Copo/Combo": 239,
+      "Jarra/Garrafa": 189
+    }
+  },
+  {
+    "id": "Combos-7",
+    "category": "Combos",
+    "name": "Whisky Chivas (5 Red Bull ou Água de coco)",
+    "prices": {
+      "Copo/Combo": 339,
+      "Jarra/Garrafa": 299
+    }
+  },
+  {
+    "id": "Combos-8",
+    "category": "Combos",
+    "name": "Whisky Jack Daniels (5 Red Bull ou Água de coco)",
+    "prices": {
+      "Copo/Combo": 339,
+      "Jarra/Garrafa": 299
+    }
+  },
+  {
+    "id": "Combos-9",
+    "category": "Combos",
+    "name": "Whisky Old Parr (5 Red Bull ou Água de coco)",
+    "prices": {
+      "Copo/Combo": 339,
+      "Jarra/Garrafa": 299
+    }
+  },
+  {
+    "id": "Combos-10",
+    "category": "Combos",
+    "name": "Whisky Red Label (5 Red Bull ou Água de coco)",
+    "prices": {
+      "Copo/Combo": 279,
+      "Jarra/Garrafa": 229
+    }
+  },
+  {
+    "id": "Para Petiscar-0",
+    "category": "Para Petiscar",
+    "name": "Batata Frita",
+    "price": 27.99
+  },
+  {
+    "id": "Para Petiscar-1",
+    "category": "Para Petiscar",
+    "name": "Batata Frita Completa (Cheddar e Bacon)",
+    "price": 33.99,
+    "image": "assets/batata-frita-completa.jpg"
+  },
+  {
+    "id": "Para Petiscar-2",
+    "category": "Para Petiscar",
+    "name": "Mandioca Frita",
+    "price": 17.99
+  },
+  {
+    "id": "Para Petiscar-3",
+    "category": "Para Petiscar",
+    "name": "Calabresa Acebolada",
+    "price": 29.99
+  },
+  {
+    "id": "Para Petiscar-4",
+    "category": "Para Petiscar",
+    "name": "Calabresa Acebolada c/ Fritas",
+    "price": 35.99
+  },
+  {
+    "id": "Para Petiscar-5",
+    "category": "Para Petiscar",
+    "name": "Frango a Passarinho",
+    "price": 42.99,
+    "image": "assets/frango-a-passarinho.jpg"
+  },
+  {
+    "id": "Para Petiscar-6",
+    "category": "Para Petiscar",
+    "name": "Frango a Passarinho c/ Fritas",
+    "price": 48.99
+  },
+  {
+    "id": "Para Petiscar-7",
+    "category": "Para Petiscar",
+    "name": "Carne de Sol Acebolada",
+    "price": 64.99
+  },
+  {
+    "id": "Para Petiscar-8",
+    "category": "Para Petiscar",
+    "name": "Carne de Sol Acebolada c/ Mandioca",
+    "price": 69.99,
+    "image": "assets/carne-com-fritas.jpg"
+  },
+  {
+    "id": "Para Petiscar-9",
+    "category": "Para Petiscar",
+    "name": "Linguiça Frango c/ Pão de Alho",
+    "price": 44.99
+  },
+  {
+    "id": "Para Petiscar-10",
+    "category": "Para Petiscar",
+    "name": "Isca de Frango Empanada",
+    "price": 49.99
+  },
+  {
+    "id": "Para Petiscar-11",
+    "category": "Para Petiscar",
+    "name": "Isca de Peixe Empanada",
+    "price": 79.99
+  },
+  {
+    "id": "Para Petiscar-12",
+    "category": "Para Petiscar",
+    "name": "Posta de Peixe",
+    "price": 49.99
+  },
+  {
+    "id": "Para Petiscar-13",
+    "category": "Para Petiscar",
+    "name": "Porção de Coração de Frango",
+    "price": 44.99
+  },
+  {
+    "id": "Para Petiscar-14",
+    "category": "Para Petiscar",
+    "name": "Porção de Pastel Misto (Frango, Queijo e Carne)",
+    "price": 27.99
+  },
+  {
+    "id": "Para Petiscar-15",
+    "category": "Para Petiscar",
+    "name": "Frios (Queijo, Presunto, Azeitona, Salame e Ovo de Codorna)",
+    "price": 54.99
+  },
+  {
+    "id": "Para Petiscar-16",
+    "category": "Para Petiscar",
+    "name": "Camarão Empanado",
+    "price": 74.99
+  },
+  {
+    "id": "Para Petiscar-17",
+    "category": "Para Petiscar",
+    "name": "Camarão Alho e Óleo",
+    "price": 69.99
+  },
+  {
+    "id": "Para Petiscar-18",
+    "category": "Para Petiscar",
+    "name": "Caldos (Vaca Atolada, Frango e Mocotó)",
+    "price": 16.99
+  },
+  {
+    "id": "Para Petiscar-19",
+    "category": "Para Petiscar",
+    "name": "Torresmo",
+    "price": 27.99
+  },
+  {
+    "id": "Para Petiscar-20",
+    "category": "Para Petiscar",
+    "name": "MIX VIRACOPOS (Carne de Sol, Calabresa e Batata Frita)",
+    "price": 74.99
+  },
+  {
+    "id": "Para Petiscar-21",
+    "category": "Para Petiscar",
+    "name": "Disco de Carne C/ Fritas",
+    "price": 59.99
+  },
+  {
+    "id": "Para Petiscar-22",
+    "category": "Para Petiscar",
+    "name": "Queijo Empanado c/ Melaço",
+    "price": 44.99
+  },
+  {
+    "id": "Para Petiscar-23",
+    "category": "Para Petiscar",
+    "name": "Tilápia Inteira c/ Fritas",
+    "price": 79.99
+  },
+  {
+    "id": "Para Petiscar-24",
+    "category": "Para Petiscar",
+    "name": "Tilápia Inteira s/ Espinha c/ Fritas",
+    "price": 89.99
+  },
+  {
+    "id": "Para Petiscar-25",
+    "category": "Para Petiscar",
+    "name": "Picanha Fatiada c/ Fritas",
+    "price": 99.99
+  },
+  {
+    "id": "Pratos Kids-0",
+    "category": "Pratos Kids",
+    "name": "Hambúrguer c/ Fritas",
+    "price": 24.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-0",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Tilápia Inteira s/ Espinha",
+    "price": 139.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-1",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Picanha Completa",
+    "price": 149.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-2",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Filé Mignon",
+    "price": 149.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-3",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Carne de Sol Completa",
+    "price": 109.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-4",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Parmegiana de Frango",
+    "price": 69.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-5",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Parmegiana de Filé Mignon",
+    "price": 79.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-6",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Bobó de Camarão",
+    "price": 109.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-7",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Moqueca de Peixe com Camarão",
+    "price": 119.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-8",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Moqueca de Peixe sem Camarão",
+    "price": 99.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-9",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Camarão Viracopos",
+    "price": 109.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-10",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Espaguete a Bolonhesa com Carne",
+    "price": 79.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-11",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Espaguete 4 Queijos com Camarão",
+    "price": 109.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-12",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Filé de Tilápia com Arroz de Camarão",
+    "price": 129.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-13",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Filé de Frango Grelhado",
+    "price": 69.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-14",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Filé de Frango Grelhado Molho 4 Queijos",
+    "price": 79.99
+  },
+  {
+    "id": "Pratos (para 2 pessoas)-15",
+    "category": "Pratos (para 2 pessoas)",
+    "name": "Posta de Tilápia",
+    "price": 89.99
+  },
+  {
+    "id": "Pratos Executivos-0",
+    "category": "Pratos Executivos",
+    "name": "Peito de Frango Grelhado",
+    "price": 22.99
+  },
+  {
+    "id": "Pratos Executivos-1",
+    "category": "Pratos Executivos",
+    "name": "Bife a Cavalo",
+    "price": 27.99
+  },
+  {
+    "id": "Pratos Executivos-2",
+    "category": "Pratos Executivos",
+    "name": "Parmegiana de Frango",
+    "price": 27.99
+  },
+  {
+    "id": "Pratos Executivos-3",
+    "category": "Pratos Executivos",
+    "name": "Parmegiana de Filé Mignon",
+    "price": 37.99
+  },
+  {
+    "id": "Pratos Executivos-4",
+    "category": "Pratos Executivos",
+    "name": "Posta de Tilápia",
+    "price": 27.99
+  },
+  {
+    "id": "Pratos Executivos-5",
+    "category": "Pratos Executivos",
+    "name": "Estrogonofe de Frango",
+    "price": 27.99
+  },
+  {
+    "id": "Pratos Executivos-6",
+    "category": "Pratos Executivos",
+    "name": "Estrogonofe de Filé Mignon",
+    "price": 37.99
+  },
+  {
+    "id": "Pratos Executivos-7",
+    "category": "Pratos Executivos",
+    "name": "Picanha",
+    "price": 37.99
+  },
+  {
+    "id": "Pratos Executivos-8",
+    "category": "Pratos Executivos",
+    "name": "Feijoada",
+    "price": 19.99
+  },
+  {
+    "id": "Acompanhamentos-0",
+    "category": "Acompanhamentos",
+    "name": "Arroz Branco",
+    "price": 8.99
+  },
+  {
+    "id": "Acompanhamentos-1",
+    "category": "Acompanhamentos",
+    "name": "Arroz Biro Biro",
+    "price": 18.99
+  },
+  {
+    "id": "Acompanhamentos-2",
+    "category": "Acompanhamentos",
+    "name": "Feijão de Caldo",
+    "price": 9.99
+  },
+  {
+    "id": "Acompanhamentos-3",
+    "category": "Acompanhamentos",
+    "name": "Feijão Tropeiro",
+    "price": 12.99
+  },
+  {
+    "id": "Acompanhamentos-4",
+    "category": "Acompanhamentos",
+    "name": "Farofa de Bacon",
+    "price": 14.99
+  },
+  {
+    "id": "Acompanhamentos-5",
+    "category": "Acompanhamentos",
+    "name": "Mandioca Cozida",
+    "price": 5.99
+  },
+  {
+    "id": "Acompanhamentos-6",
+    "category": "Acompanhamentos",
+    "name": "Mandioca Frita",
+    "price": 12.99
+  },
+  {
+    "id": "Acompanhamentos-7",
+    "category": "Acompanhamentos",
+    "name": "Vinaigrette",
+    "price": 11.99
+  },
+  {
+    "id": "Acompanhamentos-8",
+    "category": "Acompanhamentos",
+    "name": "Batata Recheada",
+    "price": 14.99
+  },
+  {
+    "id": "Acompanhamentos-9",
+    "category": "Acompanhamentos",
+    "name": "Salada",
+    "price": 8.99
+  },
+  {
+    "id": "Acompanhamentos-10",
+    "category": "Acompanhamentos",
+    "name": "Puré",
+    "price": 9.99
+  },
+  {
+    "id": "Sobremesas-0",
+    "category": "Sobremesas",
+    "name": "Brownie com Sorvete",
+    "price": 19.99
+  },
+  {
+    "id": "Sobremesas-1",
+    "category": "Sobremesas",
+    "name": "Pudim",
+    "price": 14.99
+  }
 ];
+const PHOTO_MAP = {"Batata Frita Completa (Cheddar e Bacon)": "assets/batata-frita-completa.jpg", "Frango a Passarinho": "assets/frango-a-passarinho.jpg", "Carne de Sol Acebolada c/ Mandioca": "assets/carne-com-fritas.jpg", "Caipirinha": "assets/caipirinha.jpg"};
+const CART_KEY = "viracopos-cart-v1";
+const WHATSAPP_NUMBER = "5561995634865"; // confirmar com o estabelecimento antes de publicar como WhatsApp de pedidos
+const fmt = v => new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).format(v);
+const norm = s => s.normalize("NFD").replace(/\p{Diacritic}/gu,"").toLowerCase();
+let cart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+let activeCategory = "Todos";
+let searchTerm = "";
 
-const CART_KEY="viracopos-cart";
-const img="assets/viracopos-food-collage.png";
-let cart=JSON.parse(localStorage.getItem(CART_KEY)||"[]");
-let activeCat="Todas";
-let query="";
-
-const money=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
-const norm=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
-
-function saveCart(){localStorage.setItem(CART_KEY,JSON.stringify(cart));updateCartCount();}
-function updateCartCount(){
+function saveCart(){localStorage.setItem(CART_KEY,JSON.stringify(cart)); updateCartBadge();}
+function updateCartBadge(){
   const n=cart.reduce((a,i)=>a+i.qty,0);
-  document.querySelectorAll("#cartCount").forEach(e=>e.textContent=n);
+  document.querySelectorAll("[data-cart-count]").forEach(e=>e.textContent=n);
 }
-function toast(t){const e=document.getElementById("toast");if(!e)return;e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),1600)}
-function flatItems(){
-  return MENU.flatMap((g,gi)=>g.items.map((x,ii)=>({id:`${gi}-${ii}`,cat:g.cat,name:x[0],price:x[1]})));
+function openCart(){document.querySelector("#cartDrawer")?.classList.add("open");}
+function closeCart(){document.querySelector("#cartDrawer")?.classList.remove("open");}
+function addItem(item, variant, price){
+  const key=item.id+"::"+(variant||"");
+  const found=cart.find(x=>x.key===key);
+  if(found) found.qty++;
+  else cart.push({key,id:item.id,name:item.name,variant:variant||"",price,qty:1});
+  saveCart(); renderCart(); openCart();
 }
-function imageFor(name){return img;}
-
-function renderCategories(){
-  const el=document.getElementById("categories"); if(!el)return;
-  el.innerHTML=["Todas",...MENU.map(g=>g.cat)].map(c=>`<button class="cat ${c===activeCat?"active":""}" data-cat="${c}">${c}</button>`).join("");
-  el.querySelectorAll(".cat").forEach(b=>b.onclick=()=>{activeCat=b.dataset.cat;renderMenu()});
+function changeQty(key,delta){
+  const i=cart.find(x=>x.key===key); if(!i)return;
+  i.qty+=delta; if(i.qty<=0)cart=cart.filter(x=>x.key!==key);
+  saveCart(); renderCart();
+}
+function cartTotal(){return cart.reduce((a,i)=>a+i.price*i.qty,0)}
+function renderCart(){
+ const box=document.querySelector("#cartItems"), total=document.querySelector("#cartTotal");
+ if(!box)return;
+ if(!cart.length){box.innerHTML='<div class="empty">Seu carrinho está vazio.</div>'; total.textContent=fmt(0); updateCartBadge(); return;}
+ box.innerHTML=cart.map(i=>`<div class="cart-row"><div><strong>${i.name}</strong>${i.variant?`<br><small>${i.variant}</small>`:""}<div class="qty"><button onclick="changeQty('${i.key}',-1)">−</button><b>${i.qty}</b><button onclick="changeQty('${i.key}',1)">+</button></div></div><div><strong>${fmt(i.price*i.qty)}</strong><button class="variant" onclick="changeQty('${i.key}',-${i.qty})">remover</button></div></div>`).join("");
+ total.textContent=fmt(cartTotal()); updateCartBadge();
+}
+function checkout(){
+ if(!cart.length){alert("Adicione pelo menos um item ao carrinho.");return;}
+ const type=document.querySelector('input[name="delivery"]:checked')?.value || "retirada";
+ const label=type==="entrega"?"PEDIDO PARA ENTREGA EM CASA":"PEDIDO PARA RETIRADA NA LOJA";
+ const lines=cart.map(i=>`• ${i.qty}x ${i.name}${i.variant?` (${i.variant})`:""} — ${fmt(i.price*i.qty)}`);
+ const msg=`Olá, Viracopos Gastrobar!%0A%0A${label}%0A%0A${lines.join("%0A")}%0A%0A*Total: ${fmt(cartTotal())}*%0A%0AForma de pagamento: PIX (aguardo a chave/instruções para pagamento e envio do comprovante).`;
+ window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`,"_blank");
+}
+function productCard(item){
+ const img=item.image?`<img src="${item.image}" alt="${item.name}" loading="lazy">`:`<span>Foto do produto</span>`;
+ if(item.prices){
+   return `<article class="product reveal"><div class="product-img">${img}</div><div class="product-body"><h3>${item.name}</h3><div class="subprices">
+    ${Object.entries(item.prices).map(([v,p])=>`<button class="variant" onclick='addItem(MENU.find(x=>x.id==="${item.id}"),"${v}",${p})">${v} · ${fmt(p)}</button>`).join("")}</div></div></article>`;
+ }
+ return `<article class="product reveal"><div class="product-img">${img}</div><div class="product-body"><h3>${item.name}</h3><div class="price">${fmt(item.price)}</div><button class="add" onclick='addItem(MENU.find(x=>x.id==="${item.id}"),"",${item.price})'>Adicionar ao pedido</button></div></article>`;
 }
 function renderMenu(){
-  const root=document.getElementById("menuSections"); if(!root)return;
-  const nq=norm(query);
-  const groups=MENU.filter(g=>activeCat==="Todas"||g.cat===activeCat).map(g=>({...g,items:g.items.filter(x=>!nq||norm(x[0]).includes(nq)||norm(g.cat).includes(nq))})).filter(g=>g.items.length);
-  root.innerHTML=groups.length?groups.map(g=>`
-    <section class="menu-section">
-      <h2 class="section-title">${g.cat}</h2>
-      <div class="products">${g.items.map((x,i)=>productCard(g.cat,x,i)).join("")}</div>
-    </section>`).join(""):`<div class="empty">Nenhum item encontrado. Tente outra busca.</div>`;
-  root.querySelectorAll(".add").forEach(b=>b.onclick=()=>addProduct(b.dataset.cat,b.dataset.name));
-  root.querySelectorAll(".variant").forEach(b=>b.onclick=()=>{
-    const group=b.closest(".product");group.querySelectorAll(".variant").forEach(v=>v.classList.remove("selected"));b.classList.add("selected");
-  });
+ const grid=document.querySelector("#menuGrid"); if(!grid)return;
+ const filtered=MENU.filter(i=>(activeCategory==="Todos"||i.category===activeCategory)&&(!searchTerm||norm(i.name).includes(norm(searchTerm))));
+ grid.innerHTML=filtered.map(productCard).join("");
+ requestAnimationFrame(()=>document.querySelectorAll(".reveal").forEach((e,i)=>setTimeout(()=>e.classList.add("visible"),Math.min(i*25,350))));
 }
-function productCard(cat,x,i){
-  const p=x[1], variants=typeof p==="object";
-  let defaultPrice=variants?Object.values(p)[0]:p;
-  return `<article class="product">
-    <div class="product-photo"><img src="${imageFor(x[0])}" alt="${x[0]}" loading="lazy"></div>
-    <div class="product-info"><h3>${x[0]}</h3>
-      ${variants?`<div class="variants">${Object.entries(p).map(([k,v],j)=>`<button class="variant ${j===0?"selected":""}" data-variant="${k}" data-price="${v}">${k} · ${money(v)}</button>`).join("")}</div>`:`<div class="price">${money(defaultPrice)}</div>`}
-    </div>
-    <button class="add" data-cat="${cat}" data-name="${x[0]}">+ Adicionar</button>
-  </article>`;
+function initMenu(){
+ const cats=["Todos",...new Set(MENU.map(i=>i.category))];
+ const bar=document.querySelector("#categories");
+ if(bar)bar.innerHTML=cats.map(c=>`<button class="pill ${c==="Todos"?"active":""}" data-cat="${c}">${c}</button>`).join("");
+ bar?.addEventListener("click",e=>{if(!e.target.matches(".pill"))return;activeCategory=e.target.dataset.cat;bar.querySelectorAll(".pill").forEach(x=>x.classList.remove("active"));e.target.classList.add("active");renderMenu();});
+ const q=new URLSearchParams(location.search).get("busca"); if(q){searchTerm=q;document.querySelector("#menuSearch").value=q;}
+ renderMenu();
+ if(new URLSearchParams(location.search).get("carrinho")==="1")openCart();
 }
-function addProduct(cat,name){
-  const g=MENU.find(g=>g.cat===cat), x=g.items.find(x=>x[0]===name), p=x[1];
-  let variant=null,price=typeof p==="object"?Object.values(p)[0]:p;
-  if(typeof p==="object")variant=Object.keys(p)[0];
-  const key=cat+"|"+name+"|"+(variant||"");
-  const found=cart.find(i=>i.key===key);
-  if(found)found.qty++;else cart.push({key,cat,name,variant,price,qty:1});
-  saveCart();toast("Adicionado ao carrinho");
+function setupCommon(){
+ updateCartBadge(); renderCart();
+ document.querySelectorAll("[data-open-cart]").forEach(b=>b.addEventListener("click",openCart));
+ document.querySelectorAll("[data-close-cart]").forEach(b=>b.addEventListener("click",closeCart));
+ const form=document.querySelector("#heroSearch"); form?.addEventListener("submit",e=>{e.preventDefault();const q=form.querySelector("input").value.trim();location.href="menu.html?busca="+encodeURIComponent(q)});
+ const mf=document.querySelector("#menuSearchForm"); mf?.addEventListener("submit",e=>e.preventDefault());
+ document.querySelector("#menuSearch")?.addEventListener("input",e=>{searchTerm=e.target.value;renderMenu()});
+ document.querySelector("#checkout")?.addEventListener("click",checkout);
+ const obs=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("visible")),{threshold:.12});
+ document.querySelectorAll(".reveal").forEach(e=>obs.observe(e));
 }
-function renderCart(){
-  const el=document.getElementById("cartItems"),total=cart.reduce((s,i)=>s+i.price*i.qty,0);
-  if(!el)return;
-  el.innerHTML=cart.length?cart.map((i,idx)=>`<div class="cart-line">
-    <div><h4>${i.name}</h4><small>${i.variant?i.variant+" · ":""}${money(i.price)}</small></div>
-    <div style="text-align:right"><div class="qty"><button data-i="${idx}" data-act="minus">−</button><strong>${i.qty}</strong><button data-i="${idx}" data-act="plus">+</button><button class="remove" data-i="${idx}" data-act="remove">×</button></div><strong>${money(i.price*i.qty)}</strong></div>
-  </div>`).join(""):`<div class="empty">Seu carrinho ainda está vazio.</div>`;
-  const t=document.getElementById("cartTotal");if(t)t.textContent=money(total);
-  el.querySelectorAll("[data-act]").forEach(b=>b.onclick=()=>{
-    const i=+b.dataset.i,a=b.dataset.act;
-    if(a==="plus")cart[i].qty++;if(a==="minus")cart[i].qty--;if(a==="remove"||cart[i].qty<=0)cart.splice(i,1);
-    saveCart();renderCart();
-  });
-}
-function openCart(){document.getElementById("cartDrawer")?.classList.add("open");document.getElementById("cartBackdrop")?.classList.add("open");renderCart()}
-function closeCart(){document.getElementById("cartDrawer")?.classList.remove("open");document.getElementById("cartBackdrop")?.classList.remove("open")}
-function setup(){
-  updateCartCount();
-  const hs=document.getElementById("heroSearch");
-  hs?.addEventListener("submit",e=>{e.preventDefault();const q=document.getElementById("heroSearchInput").value.trim();location.href="menu.html?busca="+encodeURIComponent(q)});
-  const ms=document.getElementById("menuSearch");
-  ms?.addEventListener("submit",e=>e.preventDefault());
-  document.getElementById("menuSearchInput")?.addEventListener("input",e=>{query=e.target.value;renderMenu()});
-  renderCategories();renderMenu();renderCart();
-  document.getElementById("openCart")?.addEventListener("click",openCart);
-  document.getElementById("closeCart")?.addEventListener("click",closeCart);
-  document.getElementById("cartBackdrop")?.addEventListener("click",closeCart);
-  document.getElementById("checkout")?.addEventListener("click",()=>{
-    if(!cart.length){toast("Adicione itens ao carrinho primeiro.");return}
-    const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
-    const text=["Olá! Quero fazer um pedido no Viracopos Gastrobar:","",...cart.map(i=>`• ${i.qty}x ${i.name}${i.variant?" ("+i.variant+")":""} — ${money(i.price*i.qty)}`),"",`Total: ${money(total)}`,"","Por favor, me orientem sobre a finalização do pedido."].join("\n");
-    // Número encontrado anteriormente; confirme o WhatsApp de pedidos antes de publicar como definitivo.
-    const phone="5561995634865";
-    location.href=`https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-  });
-  const params=new URLSearchParams(location.search),q=params.get("busca");
-  if(q&&document.getElementById("menuSearchInput")){query=q;document.getElementById("menuSearchInput").value=q;renderMenu()}
-  if(params.get("carrinho")==="1")setTimeout(openCart,250);
-}
-document.addEventListener("DOMContentLoaded",setup);
+document.addEventListener("DOMContentLoaded",()=>{setupCommon();initMenu();});
