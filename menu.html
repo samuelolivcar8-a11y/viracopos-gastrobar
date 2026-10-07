@@ -1,55 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080808">
-  <title>Cardápio — Viracopos Gastrobar</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="menu-page">
-  <header class="topbar sticky">
-    <div class="brand">
-      <div class="brand-mark">LOGO</div>
-      <div class="brand-name">VIRACOPOS <span>GASTROBAR</span></div>
-    </div>
-    <div class="top-actions">
-      <a class="btn btn-yellow desktop-menu-btn" href="index.html">Vitrine</a>
-      <button class="cart-link" id="openCart" aria-label="Abrir carrinho">🛒 <b id="cartCount">0</b></button>
-    </div>
-  </header>
-
-  <main class="catalog">
-    <section class="catalog-head">
-      <div>
-        <p class="eyebrow">CARDÁPIO</p>
-        <h1>Escolha seu momento.</h1>
-      </div>
-      <form class="search-menu" id="menuSearch">
-        <span>⌕</span>
-        <input id="menuSearchInput" type="search" placeholder="Buscar no cardápio..." autocomplete="off">
-      </form>
-    </section>
-
-    <div class="categories" id="categories"></div>
-    <section id="menuSections"></section>
-  </main>
-
-  <div class="cart-backdrop" id="cartBackdrop"></div>
-  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrinho">
-    <div class="cart-header">
-      <div><p class="eyebrow">SEU PEDIDO</p><h2>Seu carrinho</h2></div>
-      <button id="closeCart" class="icon-btn">×</button>
-    </div>
-    <div id="cartItems" class="cart-items"></div>
-    <div class="cart-footer">
-      <div class="total-row"><span>Subtotal</span><strong id="cartTotal">R$ 0,00</strong></div>
-      <p class="cart-note">Confira os itens antes de finalizar.</p>
-      <button class="btn btn-yellow full" id="checkout">Finalizar pedido</button>
-    </div>
-  </aside>
-
-  <div class="toast" id="toast"></div>
-  <script src="script.js"></script>
-</body>
-</html>
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cardápio | Viracopos Gastrobar</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header class="header"><div class="container nav"><a class="brand" href="index.html"><div class="logo-slot"><span>SUA<br>LOGO</span></div><span>VIRACOPOS<br>GASTROBAR</span></a><div class="actions"><a class="btn menu-link" href="index.html">Vitrine</a><button class="btn cart-btn" data-open-cart>🛒 <span data-cart-count>0</span></button></div></div></header>
+<main class="menu-page"><div class="container"><div class="menu-top"><div><div class="eyebrow">CARDÁPIO DIGITAL</div><h1>Escolha. Adicione. Peça.</h1></div><form class="search" id="menuSearchForm" style="width:min(470px,100%);margin:0"><input id="menuSearch" placeholder="Buscar prato, bebida ou sobremesa..."></form></div></div>
+<div class="category-bar"><div class="container"><div class="categories" id="categories"></div></div></div>
+<div class="container"><div class="menu-grid" id="menuGrid"></div></div></main>
+<div class="drawer" id="cartDrawer"><div class="backdrop" data-close-cart></div><aside class="cart-panel"><div class="cart-head"><h2>Seu pedido</h2><button class="btn" data-close-cart>Fechar</button></div><div id="cartItems" class="cart-items"></div><div class="cart-foot"><div class="total"><span>Total</span><span id="cartTotal">R$ 0,00</span></div><div class="choice"><label class="btn"><input type="radio" name="delivery" value="retirada" checked> Retirar na loja</label><label class="btn"><input type="radio" name="delivery" value="entrega"> Entrega em casa</label></div><button class="btn gold" id="checkout" style="width:100%">Enviar pedido no WhatsApp</button><div class="notice">O WhatsApp abrirá com os itens, quantidades, total e a modalidade escolhida. O atendimento confirma o pedido, envia as instruções do PIX e recebe o comprovante.</div></div></aside></div>
+<script src="script.js"></script></body></html>
