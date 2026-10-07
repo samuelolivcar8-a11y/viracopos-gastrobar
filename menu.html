@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>Cardápio — Viracopos Gastrobar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="menu-page">
+  <header class="topbar sticky">
+    <div class="brand">
+      <div class="brand-mark">LOGO</div>
+      <div class="brand-name">VIRACOPOS <span>GASTROBAR</span></div>
+    </div>
+    <div class="top-actions">
+      <a class="btn btn-yellow desktop-menu-btn" href="index.html">Vitrine</a>
+      <button class="cart-link" id="openCart" aria-label="Abrir carrinho">🛒 <b id="cartCount">0</b></button>
+    </div>
+  </header>
 
+  <main class="catalog">
+    <section class="catalog-head">
+      <div>
+        <p class="eyebrow">CARDÁPIO</p>
+        <h1>Escolha seu momento.</h1>
+      </div>
+      <form class="search-menu" id="menuSearch">
+        <span>⌕</span>
+        <input id="menuSearchInput" type="search" placeholder="Buscar no cardápio..." autocomplete="off">
+      </form>
+    </section>
+
+    <div class="categories" id="categories"></div>
+    <section id="menuSections"></section>
+  </main>
+
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrinho">
+    <div class="cart-header">
+      <div><p class="eyebrow">SEU PEDIDO</p><h2>Seu carrinho</h2></div>
+      <button id="closeCart" class="icon-btn">×</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="total-row"><span>Subtotal</span><strong id="cartTotal">R$ 0,00</strong></div>
+      <p class="cart-note">Confira os itens antes de finalizar.</p>
+      <button class="btn btn-yellow full" id="checkout">Finalizar pedido</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
