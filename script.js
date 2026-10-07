@@ -1,65 +1,83 @@
-const categoryButtons = document.querySelectorAll(".category");
-const menuCategories = document.querySelectorAll(".menu-category");
-const searchInput = document.getElementById("menuSearch");
+const buttons = document.querySelectorAll(".category");
+const categories = document.querySelectorAll(".menu-category");
+const search = document.getElementById("menuSearch");
 
-categoryButtons.forEach(button => {
+function showCategory(name) {
+  categories.forEach(category => {
+    category.classList.toggle(
+      "active-category",
+      category.dataset.menu === name
+    );
+  });
+
+  buttons.forEach(button => {
+    button.classList.toggle(
+      "active",
+      button.dataset.category === name
+    );
+  });
+}
+
+buttons.forEach(button => {
   button.addEventListener("click", () => {
+    showCategory(button.dataset.category);
 
-    categoryButtons.forEach(item => {
-      item.classList.remove("active");
-    });
-
-    button.classList.add("active");
-
-    const category = button.dataset.category;
-
-    menuCategories.forEach(section => {
-      section.classList.remove("active-category");
-
-      if (section.dataset.menu === category) {
-        section.classList.add("active-category");
-      }
-    });
-
-    if (searchInput) {
-      searchInput.value = "";
-      clearSearch();
+    if (search) {
+      search.value = "";
+      document.querySelectorAll(".menu-item").forEach(item => {
+        item.style.display = "";
+      });
     }
   });
 });
 
 
-function clearSearch() {
-  document.querySelectorAll(".menu-item").forEach(item => {
-    item.style.display = "";
-  });
-}
+if (search) {
 
+  search.addEventListener("input", () => {
 
-if (searchInput) {
-
-  searchInput.addEventListener("input", () => {
-
-    const search = searchInput.value
+    const term = search.value
       .toLowerCase()
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "");
 
-    const visibleCategory = document.querySelector(
-      ".menu-category.active-category"
-    );
+    if (!term) {
+      showCategory("petiscos");
 
-    if (!visibleCategory) return;
+      document.querySelectorAll(".menu-item").forEach(item => {
+        item.style.display = "";
+      });
 
-    visibleCategory.querySelectorAll(".menu-item").forEach(item => {
+      return;
+    }
 
-      const text = item.textContent
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
+    buttons.forEach(button => {
+      button.classList.remove("active");
+    });
 
-      item.style.display =
-        text.includes(search) ? "" : "none";
+    categories.forEach(category => {
+
+      let found = false;
+
+      category.querySelectorAll(".menu-item").forEach(item => {
+
+        const text = item.textContent
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+
+        const match = text.includes(term);
+
+        item.style.display = match ? "" : "none";
+
+        if (match) {
+          found = true;
+        }
+
+      });
+
+      category.classList.toggle("active-category", found);
+
     });
 
   });
