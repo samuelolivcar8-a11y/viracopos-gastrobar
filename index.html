@@ -2,13 +2,25 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Viracopos Gastrobar</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <meta
     name="description"
-    content="Viracopos Gastrobar — cardápio, experiência, galeria e contato."
+    content="Cardápio digital do Viracopos Gastrobar."
+  >
+
+  <title>Viracopos Gastrobar | Cardápio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
   >
 
   <link rel="stylesheet" href="style.css">
@@ -16,50 +28,46 @@
 
 <body>
 
-  <!-- ================= HEADER ================= -->
+  <!-- HEADER -->
 
   <header class="header">
 
-    <div class="header-inner">
+    <div class="brand">
 
-      <a href="#inicio" class="logo">
-        <span>VIRACOPOS</span>
-        <small>GASTROBAR</small>
-      </a>
+      <div class="brand-name">
+        VIRACOPOS
+      </div>
 
-      <nav class="desktop-nav">
-        <a href="#inicio">Início</a>
-        <a href="#cardapio">Cardápio</a>
-        <a href="#experiencia">Experiência</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#contato">Contato</a>
-      </nav>
-
-      <a href="#cardapio" class="header-button">
-        Ver cardápio
-      </a>
+      <div class="brand-subtitle">
+        GASTROBAR
+      </div>
 
     </div>
+
+    <button
+      class="menu-open-button"
+      id="openMenuButton"
+    >
+      Ver cardápio
+    </button>
+
+    <button
+      class="cart-button"
+      id="cartButton"
+      aria-label="Abrir pedido"
+    >
+      <span class="cart-icon">🛒</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
 
   </header>
 
 
+  <!-- HERO -->
+
   <main>
 
-    <!-- ================= HERO ================= -->
-
-    <section id="inicio" class="hero">
-
-      <div class="hero-background">
-
-        <!-- FOTO REAL SERÁ COLOCADA AQUI DEPOIS -->
-
-        <div class="hero-photo-placeholder">
-          <span>FOTO REAL DO VIRACOPOS</span>
-          <small>Imagem do Instagram será adicionada aqui</small>
-        </div>
-
-      </div>
+    <section class="hero">
 
       <div class="hero-overlay"></div>
 
@@ -70,205 +78,96 @@
         </span>
 
         <h1>
-          Uma experiência<br>
-          para aproveitar.
+          Seu momento começa<br>
+          pelo cardápio.
         </h1>
 
         <p>
-          Cardápio, ambiente e momentos do Viracopos,
-          apresentados em um só lugar.
+          Escolha seus pratos, bebidas e acompanhamentos.
+          Monte seu pedido e envie diretamente.
         </p>
 
-        <div class="hero-actions">
-
-          <a href="#cardapio" class="button button-primary">
-            Explorar cardápio
-          </a>
-
-          <a
-            href="https://www.instagram.com/viracoposgastrobar/"
-            target="_blank"
-            rel="noopener"
-            class="button button-secondary"
-          >
-            Instagram
-          </a>
-
-        </div>
-
-      </div>
-
-      <div class="hero-scroll">
-        <span>Role para explorar</span>
-        <i></i>
-      </div>
-
-    </section>
-
-
-    <!-- ================= INTRO ================= -->
-
-    <section class="intro section">
-
-      <div class="intro-label">
-        VIRACOPOS
-      </div>
-
-      <div class="intro-content">
-
-        <h2>
-          O que você procura<br>
-          está aqui.
-        </h2>
-
-        <p>
-          Explore o cardápio, conheça o ambiente e encontre
-          os canais oficiais do Viracopos Gastrobar.
-        </p>
+        <button
+          class="hero-button"
+          id="heroMenuButton"
+        >
+          Explorar cardápio
+          <span>→</span>
+        </button>
 
       </div>
 
     </section>
 
 
-    <!-- ================= EXPERIÊNCIA ================= -->
+    <!-- CARDÁPIO -->
 
-    <section id="experiencia" class="experience section">
+    <section
+      class="menu-section"
+      id="cardapio"
+    >
 
-      <div class="section-heading">
+      <div class="menu-header">
 
-        <span class="eyebrow">
-          EXPERIÊNCIA
-        </span>
+        <div>
 
-        <h2>
-          Feito para ficar.
-        </h2>
-
-      </div>
-
-
-      <div class="experience-grid">
-
-        <article class="experience-card large">
-
-          <div class="experience-placeholder">
-            <span>FOTO REAL</span>
-          </div>
-
-          <div class="experience-content">
-
-            <span>01</span>
-
-            <h3>
-              Ambiente
-            </h3>
-
-            <p>
-              Um espaço preparado para receber
-              seus momentos no Viracopos.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <article class="experience-card">
-
-          <div class="experience-placeholder">
-            <span>FOTO REAL</span>
-          </div>
-
-          <div class="experience-content">
-
-            <span>02</span>
-
-            <h3>
-              Gastronomia
-            </h3>
-
-            <p>
-              Consulte o cardápio completo e
-              escolha o que combina com você.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <article class="experience-card">
-
-          <div class="experience-placeholder">
-            <span>FOTO REAL</span>
-          </div>
-
-          <div class="experience-content">
-
-            <span>03</span>
-
-            <h3>
-              Momentos
-            </h3>
-
-            <p>
-              Um espaço para comer, beber
-              e aproveitar.
-            </p>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= CARDÁPIO ================= -->
-
-    <section id="cardapio" class="menu section">
-
-      <div class="menu-top">
-
-        <div class="section-heading">
-
-          <span class="eyebrow">
+          <span class="section-label">
             CARDÁPIO
           </span>
 
           <h2>
-            Escolha o seu.
+            Escolha o que<br>
+            você quer.
           </h2>
 
         </div>
 
+        <p>
+          Encontre seu prato ou bebida,
+          escolha a quantidade e monte seu pedido.
+        </p>
 
-        <div class="menu-search">
+      </div>
 
-          <span>⌕</span>
 
-          <input
-            type="text"
-            id="menuSearch"
-            placeholder="Buscar no cardápio..."
-          >
+      <!-- BUSCA -->
 
-        </div>
+      <div class="search-wrapper">
+
+        <span class="search-icon">
+          ⌕
+        </span>
+
+        <input
+          type="search"
+          id="menuSearch"
+          placeholder="Buscar prato, bebida..."
+          autocomplete="off"
+        >
+
+        <button
+          id="clearSearch"
+          class="clear-search"
+          aria-label="Limpar busca"
+        >
+          ×
+        </button>
 
       </div>
 
 
       <!-- CATEGORIAS -->
 
-      <div class="menu-categories" id="menuCategories">
+      <div
+        class="categories"
+        id="categories"
+      >
 
         <button
           class="category active"
           data-category="petiscos"
         >
-          Para petiscar
+          Para Petiscar
         </button>
 
         <button
@@ -315,478 +214,321 @@
 
         <button
           class="category"
+          data-category="sucos"
+        >
+          Sucos
+        </button>
+
+        <button
+          class="category"
+          data-category="cremes"
+        >
+          Cremes
+        </button>
+
+        <button
+          class="category"
+          data-category="cervejas600"
+        >
+          Cervejas 600ml
+        </button>
+
+        <button
+          class="category"
+          data-category="cervejaslong"
+        >
+          Long & Latas
+        </button>
+
+        <button
+          class="category"
           data-category="drinks"
         >
           Drinks
         </button>
 
+        <button
+          class="category"
+          data-category="doses"
+        >
+          Doses
+        </button>
+
+        <button
+          class="category"
+          data-category="garrafas"
+        >
+          Garrafas & Vinhos
+        </button>
+
+        <button
+          class="category"
+          data-category="combos"
+        >
+          Combos
+        </button>
+
       </div>
 
 
-      <!-- ITENS -->
+      <!-- RESULTADO DA BUSCA -->
 
-      <div class="menu-content">
+      <div
+        id="searchResults"
+        class="search-results"
+      ></div>
 
 
-        <!-- PETISCOS -->
+      <!-- CONTEÚDO DO CARDÁPIO -->
 
-        <div
-          class="menu-category active-category"
-          data-menu="petiscos"
-        >
+      <div
+        id="menuContent"
+        class="menu-content"
+      ></div>
 
-          <div class="menu-category-title">
 
-            <span>01</span>
+      <div
+        id="noResults"
+        class="no-results hidden"
+      >
 
-            <h3>
-              Para petiscar
-            </h3>
+        <strong>
+          Nada encontrado.
+        </strong>
 
-          </div>
-
-          <div class="menu-grid">
-
-            <article class="menu-item">
-
-              <div>
-                <h4>Item do cardápio</h4>
-                <p>Descrição real será adicionada.</p>
-              </div>
-
-              <strong>—</strong>
-
-            </article>
-
-
-            <article class="menu-item">
-
-              <div>
-                <h4>Item do cardápio</h4>
-                <p>Descrição real será adicionada.</p>
-              </div>
-
-              <strong>—</strong>
-
-            </article>
-
-
-            <article class="menu-item">
-
-              <div>
-                <h4>Item do cardápio</h4>
-                <p>Descrição real será adicionada.</p>
-              </div>
-
-              <strong>—</strong>
-
-            </article>
-
-
-            <article class="menu-item">
-
-              <div>
-                <h4>Item do cardápio</h4>
-                <p>Descrição real será adicionada.</p>
-              </div>
-
-              <strong>—</strong>
-
-            </article>
-
-          </div>
-
-        </div>
-
-
-        <!-- KIDS -->
-
-        <div
-          class="menu-category"
-          data-menu="kids"
-        >
-
-          <div class="menu-category-title">
-
-            <span>02</span>
-
-            <h3>Pratos Kids</h3>
-
-          </div>
-
-          <div class="menu-grid">
-
-            <article class="menu-item">
-              <div>
-                <h4>Itens do cardápio</h4>
-                <p>Conteúdo real será adicionado.</p>
-              </div>
-              <strong>—</strong>
-            </article>
-
-          </div>
-
-        </div>
-
-
-        <!-- PRATOS -->
-
-        <div
-          class="menu-category"
-          data-menu="pratos"
-        >
-
-          <div class="menu-category-title">
-
-            <span>03</span>
-
-            <h3>Pratos</h3>
-
-          </div>
-
-          <div class="menu-grid">
-
-            <article class="menu-item">
-              <div>
-                <h4>Itens do cardápio</h4>
-                <p>Conteúdo real será adicionado.</p>
-              </div>
-              <strong>—</strong>
-            </article>
-
-          </div>
-
-        </div>
-
-
-        <!-- EXECUTIVOS -->
-
-        <div
-          class="menu-category"
-          data-menu="executivos"
-        >
-
-          <div class="menu-category-title">
-
-            <span>04</span>
-
-            <h3>Pratos Executivos</h3>
-
-          </div>
-
-          <div class="menu-grid">
-
-            <article class="menu-item">
-              <div>
-                <h4>Itens do cardápio</h4>
-                <p>Conteúdo real será adicionado.</p>
-              </div>
-              <strong>—</strong>
-            </article>
-
-          </div>
-
-        </div>
-
-
-        <!-- ACOMPANHAMENTOS -->
-
-        <div
-          class="menu-category"
-          data-menu="acompanhamentos"
-        >
-
-          <div class="menu-category-title">
-
-            <span>05</span>
-
-            <h3>Acompanhamentos</h3>
-
-          </div>
-
-          <div class="menu-grid">
-
-            <article class="menu-item">
-              <div>
-                <h4>Itens do cardápio</h4>
-                <p>Conteúdo real será adicionado.</p>
-              </div>
-              <strong>—</strong>
-            </article>
-
-          </div>
-
-        </div>
-
-
-        <!-- SOBREMESAS -->
-
-        <div
-          class="menu-category"
-          data-menu="sobremesas"
-        >
-
-          <div class="menu-category-title">
-
-            <span>06</span>
-
-            <h3>Sobremesas</h3>
-
-          </div>
-
-          <div class="menu-grid">
-
-            <article class="menu-item">
-              <div>
-                <h4>Itens do cardápio</h4>
-                <p>Conteúdo real será adicionado.</p>
-              </div>
-              <strong>—</strong>
-            </article>
-
-          </div>
-
-        </div>
-
-
-        <!-- BEBIDAS -->
-
-        <div
-          class="menu-category"
-          data-menu="bebidas"
-        >
-
-          <div class="menu-category-title">
-
-            <span>07</span>
-
-            <h3>Bebidas</h3>
-
-          </div>
-
-          <div class="menu-grid">
-
-            <article class="menu-item">
-              <div>
-                <h4>Itens do cardápio</h4>
-                <p>Conteúdo real será adicionado.</p>
-              </div>
-              <strong>—</strong>
-            </article>
-
-          </div>
-
-        </div>
-
-
-        <!-- DRINKS -->
-
-        <div
-          class="menu-category"
-          data-menu="drinks"
-        >
-
-          <div class="menu-category-title">
-
-            <span>08</span>
-
-            <h3>Drinks</h3>
-
-          </div>
-
-          <div class="menu-grid">
-
-            <article class="menu-item">
-              <div>
-                <h4>Itens do cardápio</h4>
-                <p>Conteúdo real será adicionado.</p>
-              </div>
-              <strong>—</strong>
-            </article>
-
-          </div>
-
-        </div>
+        <span>
+          Tente procurar por outro prato ou bebida.
+        </span>
 
       </div>
 
     </section>
 
 
-    <!-- ================= GALERIA ================= -->
+    <!-- INFORMAÇÕES -->
 
-    <section id="galeria" class="gallery section">
+    <section class="info-section">
 
-      <div class="section-heading">
+      <div class="info-card">
 
-        <span class="eyebrow">
-          GALERIA
+        <span class="section-label">
+          VIRACOPOS
         </span>
 
         <h2>
-          O Viracopos<br>
-          visto de perto.
-        </h2>
-
-      </div>
-
-
-      <div class="gallery-grid">
-
-        <div class="gallery-photo gallery-large">
-          <span>FOTO REAL</span>
-        </div>
-
-        <div class="gallery-photo">
-          <span>FOTO REAL</span>
-        </div>
-
-        <div class="gallery-photo">
-          <span>FOTO REAL</span>
-        </div>
-
-        <div class="gallery-photo">
-          <span>FOTO REAL</span>
-        </div>
-
-        <div class="gallery-photo gallery-wide">
-          <span>FOTO REAL</span>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= CONTATO ================= -->
-
-    <section id="contato" class="contact section">
-
-      <div class="contact-content">
-
-        <span class="eyebrow">
-          CONTATO
-        </span>
-
-        <h2>
-          Vamos ao<br>
-          Viracopos?
+          Um cardápio feito<br>
+          para escolher fácil.
         </h2>
 
         <p>
-          Consulte o cardápio, acompanhe as novidades
-          e entre em contato pelos canais oficiais.
+          Navegue pelas categorias ou pesquise
+          diretamente aquilo que deseja.
         </p>
 
       </div>
 
+      <div class="info-card">
 
-      <div class="contact-links">
+        <span class="section-label">
+          SEU PEDIDO
+        </span>
 
-        <a
-          href="https://www.instagram.com/viracoposgastrobar/"
-          target="_blank"
-          rel="noopener"
-        >
-          <span>Instagram</span>
-          <strong>@viracoposgastrobar</strong>
-          <i>↗</i>
-        </a>
+        <h2>
+          Escolha.<br>
+          Adicione.<br>
+          Envie.
+        </h2>
 
-
-        <a href="tel:+5561995634865">
-
-          <span>Telefone</span>
-
-          <strong>
-            (61) 99563-4865
-          </strong>
-
-          <i>↗</i>
-
-        </a>
-
-
-        <div class="contact-location">
-
-          <span>Localização</span>
-
-          <strong>
-            Jardim Céu Azul<br>
-            Valparaíso de Goiás — GO
-          </strong>
-
-        </div>
+        <p>
+          Monte seu pedido pelo próprio cardápio
+          e confira tudo antes de finalizar.
+        </p>
 
       </div>
 
     </section>
 
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+      <div class="footer-brand">
+        VIRACOPOS
+        <span>GASTROBAR</span>
+      </div>
+
+      <div class="footer-info">
+
+        <p>
+          Jardim Céu Azul · Valparaíso de Goiás — GO
+        </p>
+
+        <p>
+          © <span id="currentYear"></span>
+          Viracopos Gastrobar.
+        </p>
+
+      </div>
+
+    </footer>
+
   </main>
 
 
-  <!-- ================= FOOTER ================= -->
+  <!-- CARRINHO / PEDIDO -->
 
-  <footer class="footer">
+  <div
+    class="cart-overlay"
+    id="cartOverlay"
+  ></div>
 
-    <div class="footer-logo">
+  <aside
+    class="cart-panel"
+    id="cartPanel"
+  >
 
-      <strong>VIRACOPOS</strong>
+    <div class="cart-header">
 
-      <span>GASTROBAR</span>
+      <div>
+
+        <span class="section-label">
+          SEU PEDIDO
+        </span>
+
+        <h2>
+          Confira tudo.
+        </h2>
+
+      </div>
+
+      <button
+        class="close-cart"
+        id="closeCart"
+      >
+        ×
+      </button>
 
     </div>
 
 
-    <div class="footer-info">
+    <div
+      class="cart-items"
+      id="cartItems"
+    ></div>
+
+
+    <div
+      class="cart-empty"
+      id="cartEmpty"
+    >
+
+      <div class="empty-icon">
+        🛒
+      </div>
+
+      <strong>
+        Seu pedido está vazio.
+      </strong>
 
       <span>
-        Valparaíso de Goiás — GO
+        Adicione algum item do cardápio.
       </span>
-
-      <a
-        href="https://www.instagram.com/viracoposgastrobar/"
-        target="_blank"
-        rel="noopener"
-      >
-        Instagram ↗
-      </a>
 
     </div>
 
 
-    <p>
-      © 2026 Viracopos Gastrobar.
-    </p>
+    <div class="cart-footer">
 
-  </footer>
+      <div class="cart-total">
+
+        <span>
+          Total
+        </span>
+
+        <strong id="cartTotal">
+          R$ 0,00
+        </strong>
+
+      </div>
 
 
-  <!-- ================= MOBILE NAV ================= -->
+      <button
+        class="checkout-button"
+        id="checkoutButton"
+      >
+        Finalizar pedido
+        <span>→</span>
+      </button>
 
-  <nav class="mobile-nav">
+      <small class="checkout-note">
+        O pedido será preparado para envio.
+      </small>
 
-    <a href="#inicio">
-      <span>⌂</span>
-      Início
-    </a>
+    </div>
 
-    <a href="#cardapio">
-      <span>☰</span>
-      Cardápio
-    </a>
+  </aside>
 
-    <a href="#galeria">
-      <span>▧</span>
-      Galeria
-    </a>
 
-    <a href="#contato">
-      <span>↗</span>
-      Contato
-    </a>
+  <!-- MODAL DE FINALIZAÇÃO -->
 
-  </nav>
+  <div
+    class="checkout-modal"
+    id="checkoutModal"
+  >
+
+    <div class="checkout-box">
+
+      <button
+        class="close-checkout"
+        id="closeCheckout"
+      >
+        ×
+      </button>
+
+      <span class="section-label">
+        FINALIZAR PEDIDO
+      </span>
+
+      <h2>
+        Só mais alguns dados.
+      </h2>
+
+      <p>
+        Informe seus dados para preparar o pedido.
+      </p>
+
+
+      <label>
+        Nome
+        <input
+          type="text"
+          id="customerName"
+          placeholder="Seu nome"
+        >
+      </label>
+
+
+      <label>
+        Observação
+        <textarea
+          id="customerNote"
+          placeholder="Ex.: sem cebola, ponto da carne..."
+        ></textarea>
+      </label>
+
+
+      <button
+        class="send-order"
+        id="sendOrder"
+      >
+        Preparar pedido
+        <span>→</span>
+      </button>
+
+    </div>
+
+  </div>
 
 
   <script src="script.js"></script>
